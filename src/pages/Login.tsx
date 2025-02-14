@@ -66,6 +66,7 @@ const Login = () => {
             <div className="sm:w-full sm:max-w-md stagger-animation">
               <div className="flex justify-center animate-fade-in">
                 <Link to="/" className="flex items-center space-x-2 hover-scale">
+                  
                   <GraduationCap className="h-12 w-12 text-indigo-600 animate-float" />
                   <span className="text-2xl font-bold text-gray-900">NITJ Alumni</span>
                 </Link>

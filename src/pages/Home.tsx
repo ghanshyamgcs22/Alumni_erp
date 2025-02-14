@@ -300,43 +300,48 @@ export default function Home() {
       </nav>
 
       {/* Add margin-top to account for fixed navbar */}
-      <div className="pt-24">
+      <div className="pt-[1rem]">
         {/* Hero Slider */}
         <div className="relative h-[600px] overflow-hidden rounded-2xl shadow-2xl m-20">
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className="absolute inset-0 transition-opacity duration-1000"
-              style={{
-                opacity: index === currentSlide ? 1 : 0,
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${slide.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div className="h-full flex flex-col justify-center items-center text-center text-white p-8">
-                <h1 className="text-5xl font-bold mb-4 animate-slide-up">{slide.title}</h1>
-                <p className="text-xl mb-8 animate-slide-up">{slide.subtitle}</p>
-                <div className="space-x-4 animate-slide-up">
-                  <Link
-                    to="/login"
-                    className="bg-[#1a237e] hover:bg-[#283593] text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
-                  >
-                    Sign In
-                  </Link>
-                  <Link
-                    to="/register"
-                    className="bg-white hover:bg-gray-100 text-[#1a237e] px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
-                  >
-                    Register
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
+        {slides.map((slide, index) => ( 
+  <div
+    key={index}
+    className="absolute inset-0 transition-opacity duration-1000 w-full h-full"
+    style={{
+      opacity: index === currentSlide ? 1 : 0,
+      backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${slide.image})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}
+  >
+    <div className="h-full flex flex-col justify-center items-center text-center text-white px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 animate-slide-up">
+        {slide.title}
+      </h1>
+      <p className="text-lg sm:text-xl md:text-2xl mb-5 sm:mb-8 animate-slide-up">
+        {slide.subtitle}
+      </p>
+      <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 animate-slide-up">
+        <Link
+          to="/login"
+          className="bg-[#1a237e] hover:bg-[#283593] text-white px-6 sm:px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto text-center"
+        >
+          Sign In
+        </Link>
+        <Link
+          to="/register"
+          className="bg-white hover:bg-gray-100 text-[#1a237e] px-6 sm:px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg w-full sm:w-auto text-center"
+        >
+          Register
+        </Link>
+      </div>
+    </div>
+  </div>
+))}
+
           
           {/* Slide indicators */}
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 pt-[-11rem]">
             {slides.map((_, index) => (
               <button
                 key={index}
